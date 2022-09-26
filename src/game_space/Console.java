@@ -1,10 +1,7 @@
 package game_space;
 
-public class Console {
-
-    private String name;
-    private int quantity;
-
-
-
+public enum  Console {
+    PS5,
+    Xbox,
+    NS
 }

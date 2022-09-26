@@ -1,5 +1,7 @@
 package game_space;
 
+import java.util.UUID;
+
 import static helpers.SystemHelper.*;
 
 /**
@@ -7,21 +9,19 @@ import static helpers.SystemHelper.*;
  * and keep track of the time of use, price, post and game.
  */
 public class Player {
-    private int id;
     private String name;
-    private Game game;
+    private String game;
     private Post post;
-    private Time time;
+    private String time;
 
     /**
      * To create a new Player object by initializing the values
-     * @param id  id for player : Unique
-     * @param name name for player
-     * @param game object containing the game information (type, name ...)
-     * @param post object containing the post information (console, monitor ...)
-     * @param time object containing time information (time ...)
+     * @param name String name for player
+     * @param game String containing the game information (type, name ...)
+     * @param post String containing the post information (console, monitor ...)
+     * @param time String containing time information (time ...)
      */
-    public Player(int id, String name, Game game,Post post, Time time){
+    public Player(String name, String game,Post post, String time){
         this.name = name;
         this.game = game;
         this.post = post;
@@ -36,16 +36,17 @@ public class Player {
         this.name = name;
     }
 
-    public String playerName() {
-        println("*********************** Add Player ***********************");
-        print("Player Name : ");
-        setName(input().nextLine().trim());
-        return name;
+@Override
+    public String toString(){
+        return "Name :"+this.name+"\n"+"Play Time :"+this.time+"\n"+"Game :"+this.game+"\n"+"Post :"+this.post+"\n";
     }
     public String playerGame() {
         println("*********************** Add Player ***********************");
+        println(game.toString());
         print("Player Game : ");
         setName(input().nextLine().trim());
-        return name;
+        return game;
     }
+
+
 }

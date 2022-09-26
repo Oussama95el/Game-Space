@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="636e809d-1a67-43a3-b692-4e8bf81f0e88" name="Changes" comment="updating classes and adding new methods">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Console.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Monitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game_space/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/SystemHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game_space/Statistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game_space/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,7 @@
       <updated>1663754560145</updated>
       <workItem from="1663754562643" duration="5433000" />
       <workItem from="1663769317308" duration="6707000" />
-      <workItem from="1663833927482" duration="20566000" />
+      <workItem from="1663833927482" duration="54160000" />
     </task>
     <task id="LOCAL-00001" summary="pushing project workspace">
       <created>1663754809085</created>
@@ -82,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663769464626</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updating classes and adding new methods">
+      <created>1663865633294</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663865633294</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,25 +1,37 @@
 package game_space;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+
+import static helpers.SystemHelper.print;
 
 public class Game {
 
-    private final HashMap<String,String> games = new HashMap<>();
-
-
-    public Game() {
-        games.put("Football", "FIFA22");
-        games.put("Football", "PES22");
-        games.put("War", "Counter-Strike");
-        games.put("War", "Assassin's Creed");
-        games.put("RPG", "Super Smash Bros");
-        games.put("RPG", "Zelda");
-    }
+    private static final List<String> games = new ArrayList<>();
 
     //getters
 
-    public String toString(){
-    return  this.games.toString();
+    public static List getGames(){
+        return games;
+    }
+
+
+    public Game() {
+
+    }
+
+    public static void gameList(){
+        int index = 1;
+        games.add("FIFA22");
+        games.add("PES22");
+        games.add("Counter-Strike");
+        games.add("Assassin's Creed");
+        games.add("Super Smash Bros");
+        games.add("Zelda");
+        print("*************************************\n");
+        for (String i:games){
+            print( index++ +" "+i+"\n");
+        }
     }
 
 }
