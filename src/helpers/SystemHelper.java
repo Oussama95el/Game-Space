@@ -18,7 +18,7 @@ public static void println(String message){
     //main menu
     public static int mainMenu(){
         int choice;
-            println("*********************** Game Space ***********************");
+            println("\n*********************** Game Space ***********************");
             println("1.Add player");
             println("2.Statistics");
             println("0.Quit");

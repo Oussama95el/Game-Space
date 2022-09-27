@@ -10,26 +10,29 @@ import static helpers.SystemHelper.*;
  */
 public class Player {
     private String name;
-    private String game;
-    private Post post;
-    private String time;
+    private String id;
 
     /**
-     * To create a new Player object by initializing the values
+     * To create a new Player by initializing the values and generating unique ID
      * @param name String name for player
-     * @param game String containing the game information (type, name ...)
-     * @param post String containing the post information (console, monitor ...)
-     * @param time String containing time information (time ...)
      */
-    public Player(String name, String game,Post post, String time){
+    public Player(String name){
         this.name = name;
-        this.game = game;
-        this.post = post;
-        this.time = time;
+        this.id = setPlayerId().toUpperCase();
     }
+
+    private String setPlayerId() {
+        String longId = UUID.randomUUID().toString();
+        String[] id =   longId.split("-");
+        return id[0];
+    }
+
     //getters
     public String getName(){
         return this.name;
+    }
+    public String getId(){
+        return this.id;
     }
     //Setters
     public void setName(String name){
@@ -38,15 +41,15 @@ public class Player {
 
 @Override
     public String toString(){
-        return "Name :"+this.name+"\n"+"Play Time :"+this.time+"\n"+"Game :"+this.game+"\n"+"Post :"+this.post+"\n";
+        return "Name :"+this.name+"\n"+"Player ID :"+this.id+"\n";
     }
-    public String playerGame() {
-        println("*********************** Add Player ***********************");
-        println(game.toString());
-        print("Player Game : ");
-        setName(input().nextLine().trim());
-        return game;
-    }
+//    public String playerGame() {
+//        println("*********************** Add Player ***********************");
+//        println(game.toString());
+//        print("Player Game : ");
+//        setName(input().nextLine().trim());
+//        return game;
+//    }
 
 
 }

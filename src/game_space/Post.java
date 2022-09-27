@@ -1,6 +1,7 @@
 package game_space;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static helpers.SystemHelper.print;
 
@@ -13,9 +14,9 @@ public class Post {
 
     private Console console;
     private Monitor monitor;
+    private String id;
     private static final ArrayList<Post> allPosts = new ArrayList<>();
 
-    private static ArrayList<Post> occupiedPost = new ArrayList<>();
     /**
      * Class Constructor
      *
@@ -26,6 +27,7 @@ public class Post {
     public Post(Monitor monitor, Console console){
         this.monitor = monitor;
         this.console = console;
+        this.id = setPostId().toUpperCase();
     }
     // default constructor
     public Post(){
@@ -40,13 +42,26 @@ public class Post {
     public static ArrayList<Post> getPosts(){
         return allPosts;
     }
-
+    public String getId(){
+        return this.id;
+    }
 //    Override toString method of String class
     @Override
     public String toString(){
         return   this.console +" | " + this.monitor+"\n";
     }
-
+    private String setPostId() {
+        String longId = UUID.randomUUID().toString();
+        String[] id =   longId.split("-");
+        return id[0];
+    }
+    public static void getAllPosts(){
+        int index = 1;
+        print("***********************************\n");
+        for (Post i:allPosts){
+            print(index++ +" "+ String.valueOf(i));
+        }
+    }
     static public void setPosts() {
         // set default values for post class
         Post post1 = new Post(Monitor.Asus, Console.NS);
@@ -68,9 +83,4 @@ public class Post {
 //        allPosts.add(post7);
 //        allPosts.add(post8);
 //        allPosts.add(post9);
-        int index = 1;
-        print("***********************************\n");
-        for (Post i:allPosts){
-            print(index++ +" "+ String.valueOf(i));
-        }
     }}

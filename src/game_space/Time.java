@@ -3,9 +3,12 @@ package game_space;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 import static helpers.SystemHelper.print;
 import static helpers.SystemHelper.println;
@@ -13,10 +16,13 @@ import static helpers.SystemHelper.println;
 public class Time {
     private Timestamp currentTime;
     private String niche;
-    private static final ArrayList<String> nicheList = new ArrayList<>();
+    private double cost;
+
+    private static final ArrayList<String> nicheList = new ArrayList<>(Arrays.asList("30min","60min","120min","300min","540min","VIP"));
 
     public Time(String niche) {
         this.niche = niche;
+        this.cost = cost;
     }
     //getters
     public Timestamp getCurrentTime(){
@@ -25,8 +31,65 @@ public class Time {
     public static ArrayList<String> getNicheList(){
         return nicheList;
     }
+    public static void getAllNiche(){
+        int index = 1;
+        println("*************************************");
+        for (String i:nicheList){
+            print(index++ +" "+i+"\n");
+        }
+    }
 
     public Time(){
+
+    }
+    @Override
+    public String toString(){
+        return listToString(nicheList);
+    }
+    public static String listToString(List<?> list) {
+        String result = "+";
+        for (int i = 0; i < list.size(); i++) {
+            result += " " + list.get(i);
+        }
+        return result;
+    }
+    public static String nowTime(){
+        Calendar now = Calendar.getInstance();
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int minutes = now.get(Calendar.MINUTE);
+        return hour + ":" + minutes;
+    }
+    public static double getCost(int choice){
+        double price = 0;
+        switch (choice){
+            case 1  : price  = 5 ; break;
+            case 2  : price  = 10; break;
+            case 3  : price = 18; break;
+            case 4  : price = 40; break;
+            case 5 : price   = 65; break;
+            default: break;
+        }
+        return price;
+    }
+//    public static boolean dateRangeValidator(LocalTime checkDate, LocalTime startDate, LocalTime endDate){
+//        return  checkDate.getTime() >= startDate.getTime() &&
+//                checkDate.getTime() <= endDate.getTime();
+//    }
+    public static void validatePlayTime(String timeToPlay) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        LocalTime closedMorning = LocalTime.parse("12:00");
+        LocalTime closedEvening = LocalTime.parse("20:00");
+        LocalTime openEvening = LocalTime.parse("14:00");
+        LocalTime endTime = LocalTime.parse(getPlayEndTime(timeToPlay).format(DateTimeFormatter.ofPattern("HH:mm")));
+        if (endTime.compareTo(closedEvening)>0){
+            print("We will close at 20:00");
+            System.exit(204);
+        }else if (endTime.compareTo(closedEvening) != 0){
+            print("We will close at 12:00");
+            System.exit(204);
+        }else {
+           print("valid");
+        }
 
     }
     public static void setNicheList(){
@@ -38,39 +101,23 @@ public class Time {
         nicheList.add("300min");
         nicheList.add("540min");
         nicheList.add("Special Offer");
-        println("*************************************");
-        for (String i:nicheList){
-            print(index++ +" "+i+"\n");
-        }
+
     }
-    public static void getMinutes(String time){
-        time.split("",0);
-        print(time);
-    }
+
     public static boolean runTimeMorning(int now){
         int start = 9;
         int end   = 12;
-        if ((now <= start) || (now >= 12)) {
-            return false;
-        } else {
-            return true;
-        }
+        return (now <= start) || (now >= end);
     }
     public static boolean runTimeEvening(int now){
         int start = 14;
         int end   = 20;
-        if ((now <= start) || (now >= 12)) {
-            return false;
-        } else {
-            return true;
-        }
+        return (now <= start) || (now >= end);
     }
-    public static String getPlayEndTime(int minutes,String now) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        Date d = dateFormat.parse(now);
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(d);
-        cal.add(Calendar.MINUTE, minutes);
-        return dateFormat.format(cal.getTime());
+    public static LocalTime getPlayEndTime(String minutes) {
+        LocalTime now = LocalTime.now();
+        long longMinutes = Long.parseLong(minutes.replaceAll("[^0-9]", ""));
+        println(String.valueOf(longMinutes));
+        return now.plusMinutes(longMinutes);
     }
 }

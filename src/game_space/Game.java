@@ -1,17 +1,17 @@
 package game_space;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import static helpers.SystemHelper.print;
 
 public class Game {
 
-    private static final List<String> games = new ArrayList<>();
+    private static final ArrayList<String> games = new ArrayList<>(Arrays.asList("FIFA22","PES22","Counter-Strike","Assassin's Creed"));
 
     //getters
 
-    public static List getGames(){
+    public static ArrayList<String> getGames(){
         return games;
     }
 
@@ -20,16 +20,10 @@ public class Game {
 
     }
 
-    public static void gameList(){
+    public static void getGameList(){
         int index = 1;
-        games.add("FIFA22");
-        games.add("PES22");
-        games.add("Counter-Strike");
-        games.add("Assassin's Creed");
-        games.add("Super Smash Bros");
-        games.add("Zelda");
         print("*************************************\n");
-        for (String i:games){
+        for (Object i:games){
             print( index++ +" "+i+"\n");
         }
     }
