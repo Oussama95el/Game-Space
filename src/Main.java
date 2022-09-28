@@ -31,11 +31,13 @@ public class Main extends SystemHelper {
                     // display time and store input in variable
                     Time.getAllNiche();
                     print("Select time duration :");
-                    String selectedTime = (String) Time.getNicheList().get(input().nextInt()-1);
+                    int durationChoice = input().nextInt();
+                    String selectedTime = (String) Time.getNicheList().get(durationChoice-1);
                     // store player finish time in a variable
                     LocalTime endTime = LocalTime.parse(Time.getPlayEndTime(selectedTime).format(DateTimeFormatter.ofPattern("HH:mm")));
 //                    Time.validatePlayTime(selectedTime);
-
+                    String cost = Time.getCost(durationChoice);
+                    println(cost);
                     // display all Posts and store the choice in variable
                     Post.getAllPosts();
                     print("Choose Post : ");
@@ -60,7 +62,7 @@ public class Main extends SystemHelper {
                     String selectedGame = (String) Game.getGames().get(input().nextInt() - 1);
 
                     //creat a new ticket object to gather all data in a class
-                    Ticket ticket = new Ticket(player,currentTime,endTime,selectedTime,selectedPost,selectedGame);
+                    Ticket ticket = new Ticket(player,currentTime,endTime,selectedTime,selectedPost,selectedGame,cost);
 
                     Queue.addTicket(ticket);
 

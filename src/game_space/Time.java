@@ -1,6 +1,7 @@
 package game_space;
 
 import java.sql.Timestamp;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -59,17 +60,19 @@ public class Time {
         int minutes = now.get(Calendar.MINUTE);
         return hour + ":" + minutes;
     }
-    public static double getCost(int choice){
+    public static String getCost(int choice){
         double price = 0;
-        switch (choice){
-            case 1  : price  = 5 ; break;
-            case 2  : price  = 10; break;
-            case 3  : price = 18; break;
-            case 4  : price = 40; break;
-            case 5 : price   = 65; break;
-            default: break;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        switch (choice) {
+            case 1 -> price = 5;
+            case 2 -> price = 10;
+            case 3 -> price = 18;
+            case 4 -> price = 40;
+            case 5 -> price = 65;
+            default -> {
+            }
         }
-        return price;
+        return formatter.format(price);
     }
 //    public static boolean dateRangeValidator(LocalTime checkDate, LocalTime startDate, LocalTime endDate){
 //        return  checkDate.getTime() >= startDate.getTime() &&
@@ -117,7 +120,6 @@ public class Time {
     public static LocalTime getPlayEndTime(String minutes) {
         LocalTime now = LocalTime.now();
         long longMinutes = Long.parseLong(minutes.replaceAll("[^0-9]", ""));
-        println(String.valueOf(longMinutes));
         return now.plusMinutes(longMinutes);
     }
 }

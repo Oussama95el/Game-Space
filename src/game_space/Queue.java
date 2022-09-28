@@ -18,6 +18,7 @@ public class Queue {
      * @param ticket Object containing ticket information (post, player, startTime, endTime...)
      */
     public static void addTicket(Ticket ticket) {
+        print(String.valueOf(checkPostIsOccupied(ticket.getPost())));
         if (occupiedPost.isEmpty()) {
             occupiedPost.add(ticket);
         } else {
@@ -69,6 +70,7 @@ public class Queue {
                             "\nPost Id   =      " + String.valueOf(post.getPost().getId())
                             + "\nStart Time  =    " + String.valueOf(post.getStartTime())
                             + "\nEnd Time  =      " + String.valueOf(post.getEndTime())
+                            + "\nPrice  =      " + String.valueOf(post.getPrice())
                             + "\n__________________________________"
             );
         }
@@ -87,6 +89,7 @@ public class Queue {
                                 "\nPost Id   =      " + String.valueOf(post.getPost().getId())
                                 + "\nStart Time  =    " + String.valueOf(post.getStartTime())
                                 + "\nEnd Time  =      " + String.valueOf(post.getEndTime())
+                                + "\nPrice  =      " + String.valueOf(post.getPrice())
                                 + "\n__________________________________"
                 );
             }
