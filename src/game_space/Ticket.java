@@ -40,8 +40,8 @@ public class Ticket {
 public String toString(){
         return "**************************************\n"
                 +this.player +""
-                + this.post +""
-                + this.time +"\n"
+                +this.post +""
+                +this.time +"\n"
                 +this.game+"\n"
                 +this.startTime+"\n"
                 +this.endTime+"\n"

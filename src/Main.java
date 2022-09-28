@@ -24,7 +24,8 @@ public class Main extends SystemHelper {
 
         if (Time.runTimeMorning(hour) || Time.runTimeEvening(hour)) {
             int selection = mainMenu();
-            if (selection == 1) {
+            switch (selection) {
+                case 1 :
                 do {
                     println("*********************** Add Player ***********************");
 
@@ -35,9 +36,9 @@ public class Main extends SystemHelper {
                     String selectedTime = (String) Time.getNicheList().get(durationChoice-1);
                     // store player finish time in a variable
                     LocalTime endTime = LocalTime.parse(Time.getPlayEndTime(selectedTime).format(DateTimeFormatter.ofPattern("HH:mm")));
-//                    Time.validatePlayTime(selectedTime);
+                    Time.validatePlayTime(selectedTime);
                     String cost = Time.getCost(durationChoice);
-                    println(cost);
+
                     // display all Posts and store the choice in variable
                     Post.getAllPosts();
                     print("Choose Post : ");
@@ -71,12 +72,28 @@ public class Main extends SystemHelper {
 
                     // initialize current Time
                     currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+                    Statistics saveStatistics = new Statistics();
+                    saveStatistics.save();
                     // Display main menu
                     SystemHelper.mainMenu();
                 }while (true);
-            }
-        }else{
-            println("We re Closed !!!!");
+
+                case 2 :
+                    do {
+                        println("*********************** Statistics ***********************");
+                        int choice = statisticMenu();
+                        Statistics loadStatistics = new Statistics();
+                        loadStatistics.load();
+                        switch (choice){
+                            case 1: println(String.valueOf(loadStatistics.getDayRevenue())); ;
+                            case 2: println(String.valueOf(loadStatistics.getMonthRevenue()));
+                            default: System.exit(200);
+                        }
+                    }while (true);
+
+                case 3: System.exit(200);
+
+
         }
 
 
@@ -86,4 +103,4 @@ public class Main extends SystemHelper {
     }
 
 
-}
+}}

@@ -26,5 +26,14 @@ public static void println(String message){
             choice = input().nextInt();
             return choice;
     }
+    public static int statisticMenu(){
+        int choice;
+            println("1.Total Of Day");
+            println("2.Total Of month");
+            println("0.Quit");
+            print("Select choice : ");
+            choice = input().nextInt();
+            return choice;
+    }
 
 }
