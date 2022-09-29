@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="636e809d-1a67-43a3-b692-4e8bf81f0e88" name="Changes" comment="updating classes and adding new methods !! almost there.">
-      <change afterPath="$PROJECT_DIR$/src/game_space/DataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game_space/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Statistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game_space/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/SystemHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/SystemHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +37,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -69,7 +69,7 @@
       <updated>1663754560145</updated>
       <workItem from="1663754562643" duration="5433000" />
       <workItem from="1663769317308" duration="6707000" />
-      <workItem from="1663833927482" duration="109225000" />
+      <workItem from="1663833927482" duration="113513000" />
     </task>
     <task id="LOCAL-00001" summary="pushing project workspace">
       <created>1663754809085</created>
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664386611882</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updating classes and adding new methods !! almost there.">
+      <created>1664402455804</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664402455804</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

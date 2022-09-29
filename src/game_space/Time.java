@@ -60,7 +60,21 @@ public class Time {
         int minutes = now.get(Calendar.MINUTE);
         return hour + ":" + minutes;
     }
-    public static String getCost(int choice){
+    public static double getCost(int choice){
+        double price = 0;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        switch (choice) {
+            case 1 -> price = 5;
+            case 2 -> price = 10;
+            case 3 -> price = 18;
+            case 4 -> price = 40;
+            case 5 -> price = 65;
+            default -> {
+            }
+        }
+        return price;
+    }
+    public static String getCostInCurrency(int choice){
         double price = 0;
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         switch (choice) {
@@ -78,20 +92,29 @@ public class Time {
 //        return  checkDate.getTime() >= startDate.getTime() &&
 //                checkDate.getTime() <= endDate.getTime();
 //    }
-    public static void validatePlayTime(String timeToPlay) throws ParseException {
+
+    /**
+     * Calculate if play time is valid between open hours and return string message
+     * @param timeToPlay
+     */
+    public static void validatePlayTime(String timeToPlay) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         LocalTime closedMorning = LocalTime.parse("12:00");
         LocalTime closedEvening = LocalTime.parse("20:00");
         LocalTime openEvening = LocalTime.parse("14:00");
         LocalTime endTime = LocalTime.parse(getPlayEndTime(timeToPlay).format(DateTimeFormatter.ofPattern("HH:mm")));
-        if (endTime.compareTo(closedEvening)>0){
-            print("We will close at 20:00");
-            System.exit(204);
-        }else if (endTime.compareTo(closedEvening) != 0){
-            print("We will close at 12:00");
-            System.exit(204);
-        }else {
-           print("valid");
+        try {
+            if (endTime.compareTo(closedEvening)>0){
+                print("We will close at 20:00");
+                System.exit(204);
+            }else if (endTime.compareTo(closedMorning) > 0){
+                print("We will close at 12:00");
+                System.exit(204);
+            }else {
+                print("\n");
+            }
+        }catch (Exception e){
+            e.getStackTrace();
         }
 
     }

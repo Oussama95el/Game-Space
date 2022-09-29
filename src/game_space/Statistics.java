@@ -1,6 +1,9 @@
 package game_space;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Statistics {
@@ -22,6 +25,9 @@ public class Statistics {
         monthRevenue = this.monthRevenue;
     }
 
+    /**
+     * Send data to file.dat
+     */
     public void save(){
         try {
             FileOutputStream fos = new FileOutputStream("save.dat");
@@ -38,6 +44,10 @@ public class Statistics {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Load data file containing object data to consume
+     */
     public void load(){
         try {
             FileInputStream fis = new FileInputStream("save.dat");
@@ -53,5 +63,12 @@ public class Statistics {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void sumDayRevenue(double cost){
+        this.dayRevenue+=cost;
+    }
+    public void sumMonthRevenue(double cost){
+        this.monthRevenue+=cost;
     }
 }

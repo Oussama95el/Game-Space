@@ -23,84 +23,96 @@ public class Main extends SystemHelper {
 
 
         if (Time.runTimeMorning(hour) || Time.runTimeEvening(hour)) {
-            int selection = mainMenu();
-            switch (selection) {
-                case 1 :
-                do {
-                    println("*********************** Add Player ***********************");
 
-                    // display time and store input in variable
-                    Time.getAllNiche();
-                    print("Select time duration :");
-                    int durationChoice = input().nextInt();
-                    String selectedTime = (String) Time.getNicheList().get(durationChoice-1);
-                    // store player finish time in a variable
-                    LocalTime endTime = LocalTime.parse(Time.getPlayEndTime(selectedTime).format(DateTimeFormatter.ofPattern("HH:mm")));
-                    Time.validatePlayTime(selectedTime);
-                    String cost = Time.getCost(durationChoice);
+            int selection;
+            do {
+                selection = mainMenu();
+                switch (selection) {
+                    case 1:
 
-                    // display all Posts and store the choice in variable
-                    Post.getAllPosts();
-                    print("Choose Post : ");
-                    Post selectedPost = Post.getPosts().get(input().nextInt() - 1);
+                        println("*********************** Add Player ***********************");
+
+                        // display time and store input in variable
+                        Time.getAllNiche();
+                        print("Select time duration :");
+                        int durationChoice = input().nextInt();
+                        String selectedTime = (String) Time.getNicheList().get(durationChoice - 1);
+                        // store player finish time in a variable
+                        LocalTime endTime = LocalTime.parse(Time.getPlayEndTime(selectedTime).format(DateTimeFormatter.ofPattern("HH:mm")));
+                        Time.validatePlayTime(selectedTime);
+                        String cost = Time.getCostInCurrency(durationChoice);
+
+                        // display all Posts and store the choice in variable
+                        Post.getAllPosts();
+                        print("Choose Post : ");
+                        Post selectedPost = Post.getPosts().get(input().nextInt() - 1);
 //                    (!Queue.checkPostIsOccupied(selectedPost)) ?
-                    Queue queue = new Queue();
-                    Ticket checkQueue = queue.getTicket(selectedPost);
-                    if (checkQueue == null) {
-                        print("\n***********************************\n");
-                    } else {
-                        currentTime = checkQueue.getEndTime();
-                    }
-
-                    // get player initials and creat a new object of player
-                    print("Player Name : ");
-                    String playerName = input().nextLine().trim();
-                    Player player = new Player(playerName);
-
-                    //display list of the game and store the choice input in variable
-                    Game.getGameList();
-                    print("Choose Game : ");
-                    String selectedGame = (String) Game.getGames().get(input().nextInt() - 1);
-
-                    //creat a new ticket object to gather all data in a class
-                    Ticket ticket = new Ticket(player,currentTime,endTime,selectedTime,selectedPost,selectedGame,cost);
-
-                    Queue.addTicket(ticket);
-
-                    Queue.viewOccupiedPost();
-                    Queue.viewWaitList();
-
-                    // initialize current Time
-                    currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
-                    Statistics saveStatistics = new Statistics();
-                    saveStatistics.save();
-                    // Display main menu
-                    SystemHelper.mainMenu();
-                }while (true);
-
-                case 2 :
-                    do {
-                        println("*********************** Statistics ***********************");
-                        int choice = statisticMenu();
-                        Statistics loadStatistics = new Statistics();
-                        loadStatistics.load();
-                        switch (choice){
-                            case 1: println(String.valueOf(loadStatistics.getDayRevenue())); ;
-                            case 2: println(String.valueOf(loadStatistics.getMonthRevenue()));
-                            default: System.exit(200);
+                        Queue queue = new Queue();
+                        Ticket checkQueue = queue.getTicket(selectedPost);
+                        if (checkQueue == null) {
+                            print("\n***********************************\n");
+                        } else {
+                            currentTime = checkQueue.getEndTime();
                         }
-                    }while (true);
 
-                case 3: System.exit(200);
+                        // get player initials and creat a new object of player
+                        print("Player Name : ");
+                        String playerName = input().nextLine().trim();
+                        Player player = new Player(playerName);
+
+                        //display list of the game and store the choice input in variable
+                        Game.getGameList();
+                        print("Choose Game : ");
+                        String selectedGame = (String) Game.getGames().get(input().nextInt() - 1);
+
+                        //creat a new ticket object to gather all data in a class
+                        Ticket ticket = new Ticket(player, currentTime, endTime, selectedTime, selectedPost, selectedGame, cost);
+
+                        Queue.addTicket(ticket);
+
+                        Queue.viewOccupiedPost();
+                        Queue.viewWaitList();
+
+                        // initialize current Time
+                        currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+                        // add the income of day and month to statistics
+                        Statistics statistics = new Statistics();
+
+                    statistics.sumDayRevenue(Time.getCost(durationChoice));
+                    statistics.sumMonthRevenue(Time.getCost(durationChoice));
+                    statistics.save();
+                    // Display main menu
+                        break;
 
 
+                    case 2:
+                            println("*********************** Statistics ***********************");
+                            int choice = statisticMenu();
+                            Statistics loadStatistics = new Statistics();
+                            loadStatistics.load();
+                            switch (choice) {
+                                case 1:
+                                    print("\n***********************************\n");
+                                    println("\n Daily income  =  "+ String.valueOf(loadStatistics.getDayRevenue()));
+                                    mainMenu();
+                                    break;
+
+                                case 2:
+                                    print("\n***********************************\n");
+                                    println("\n Monthly income  =  " + String.valueOf(loadStatistics.getMonthRevenue()));
+                                    selection = Integer.parseInt(null);
+                                    mainMenu();
+                                    break;
+                            }
+                            break;
+
+                    case 3:
+                        System.exit(200);
+
+
+                }
+            } while (selection != 0);
         }
-
-
-
-
-
-    }
 
 
 }}
