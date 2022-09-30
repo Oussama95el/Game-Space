@@ -21,8 +21,8 @@ public class Post {
      * Class Constructor
      *
      *
-     * @param monitor Object containing monitor information
-     * @param console Object containing monitor information
+     * @param monitor Enum containing monitor information
+     * @param console Enum containing monitor information
      */
     public Post(Monitor monitor, Console console){
         this.monitor = monitor;
@@ -50,6 +50,11 @@ public class Post {
     public String toString(){
         return   this.console +" | " + this.monitor+"\n";
     }
+
+    /**
+     * Creat a String unique ID
+     * @return String ID
+     */
     private String setPostId() {
         String longId = UUID.randomUUID().toString();
         String[] id =   longId.split("-");
@@ -65,22 +70,22 @@ public class Post {
     static public void setPosts() {
         // set default values for post class
         Post post1 = new Post(Monitor.Asus, Console.NS);
-//        Post post2 = new Post(Monitor.Asus, Console.NS);
-//        Post post3 = new Post(Monitor.Asus, Console.PS5);
+        Post post2 = new Post(Monitor.Asus, Console.NS);
+        Post post3 = new Post(Monitor.Asus, Console.PS5);
         Post post4 = new Post(Monitor.HP ,Console.PS5);
-//        Post post5 = new Post(Monitor.Samsung, Console.PS5);
-//        Post post6 = new Post(Monitor.Samsung,Console.Xbox);
-//        Post post7 = new Post(Monitor.Dell,Console.Xbox);
-//        Post post8 = new Post(Monitor.Dell,Console.Xbox);
-//        Post post9 = new Post(Monitor.Dell,Console.Xbox);
+        Post post5 = new Post(Monitor.Samsung, Console.PS5);
+        Post post6 = new Post(Monitor.Samsung,Console.Xbox);
+        Post post7 = new Post(Monitor.Dell,Console.Xbox);
+        Post post8 = new Post(Monitor.Dell,Console.Xbox);
+        Post post9 = new Post(Monitor.Dell,Console.Xbox);
         // add all posts to array list for display
         allPosts.add(post1);
-//        allPosts.add(post2);
-//        allPosts.add(post3);
+        allPosts.add(post2);
+        allPosts.add(post3);
         allPosts.add(post4);
-//        allPosts.add(post5);
-//        allPosts.add(post6);
-//        allPosts.add(post7);
-//        allPosts.add(post8);
-//        allPosts.add(post9);
+        allPosts.add(post5);
+        allPosts.add(post6);
+        allPosts.add(post7);
+        allPosts.add(post8);
+        allPosts.add(post9);
     }}

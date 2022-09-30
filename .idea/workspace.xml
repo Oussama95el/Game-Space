@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="636e809d-1a67-43a3-b692-4e8bf81f0e88" name="Changes" comment="updating classes and adding new methods !! almost there.">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game_space/DataStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.dat" beforeDir="false" afterPath="$PROJECT_DIR$/save.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game_space/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_space/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game_space/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game_space/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +44,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/adm/Documents/projects/Java/Nouveau dossier/Game-Space",
+    "last_opened_file_path": "C:/Users/adm/Documents/projects/Java/GameSpace/Game-Space",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,10 +52,13 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="game_space" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\adm\Documents\projects\Java\Nouveau dossier\Game-Space" />
     </key>
@@ -69,7 +73,8 @@
       <updated>1663754560145</updated>
       <workItem from="1663754562643" duration="5433000" />
       <workItem from="1663769317308" duration="6707000" />
-      <workItem from="1663833927482" duration="113513000" />
+      <workItem from="1663833927482" duration="116725000" />
+      <workItem from="1664527687634" duration="1980000" />
     </task>
     <task id="LOCAL-00001" summary="pushing project workspace">
       <created>1663754809085</created>
@@ -120,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664402455804</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updating classes and adding new methods !! almost there.">
+      <created>1664444204027</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664444204027</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

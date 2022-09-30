@@ -12,9 +12,14 @@ public class Main extends SystemHelper {
 
 
     static public void main(String[] args) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        // load statistics file
+        Statistics loadStatistics = new Statistics();
+        loadStatistics.load();
+        // get time instance now
         Calendar now = Calendar.getInstance();
+        // get Hour value of time
         int hour = now.get(Calendar.HOUR_OF_DAY);
+        // get Minutes value
         int minutes = now.get(Calendar.MINUTE);
         String nowTime = hour+":"+minutes;
         LocalTime currentTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
@@ -46,7 +51,7 @@ public class Main extends SystemHelper {
                         Post.getAllPosts();
                         print("Choose Post : ");
                         Post selectedPost = Post.getPosts().get(input().nextInt() - 1);
-//                    (!Queue.checkPostIsOccupied(selectedPost)) ?
+//                      Check queue for post selected
                         Queue queue = new Queue();
                         Ticket checkQueue = queue.getTicket(selectedPost);
                         if (checkQueue == null) {
@@ -88,8 +93,6 @@ public class Main extends SystemHelper {
                     case 2:
                             println("*********************** Statistics ***********************");
                             int choice = statisticMenu();
-                            Statistics loadStatistics = new Statistics();
-                            loadStatistics.load();
                             switch (choice) {
                                 case 1:
                                     print("\n***********************************\n");

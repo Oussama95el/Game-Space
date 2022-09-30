@@ -107,7 +107,7 @@ public class Time {
             if (endTime.compareTo(closedEvening)>0){
                 print("We will close at 20:00");
                 System.exit(204);
-            }else if (endTime.compareTo(closedMorning) > 0){
+            }else if (endTime.compareTo(openEvening) > 0){
                 print("We will close at 12:00");
                 System.exit(204);
             }else {
